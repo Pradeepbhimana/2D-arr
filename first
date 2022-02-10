@@ -1,29 +1,30 @@
 #include<stdio.h>
 int main(){
-    int a,v=0;
-    scanf("%d",&a);
-    int b[a][a];
+    int a,c,v=0;
+    scanf("%d%d",&a,&c);
+    int b[a][c];
     for(int i=0;i<a;i++){
-        for(int j=0;j<a;j++){
+        for(int j=0;j<c;j++){
             scanf("%d",&b[i][j]);
         }
     }
-    int c[a];
+    int d[a];
     for(int i=1;i<a-1;i++){
-        for(int j=1;j<a-1;j++){
-            c[v]=(b[i-1][j]+b[i][j-1]+b[i+1][j]+b[i][j+1]);
+        for(int j=1;j<c-1;j++){
+            d[v]=(b[i-1][j]+b[i][j-1]+b[i+1][j]+b[i][j+1]);
             v+=1;
         }
-        
+
     }
+     for(int j=0;j<v;j++){
+            printf("%d\t",d[j]);
+        }
     int f=0;
-     for(int j=0;j<a;j++){
-      if(c[j]>f){
-          f=c[j];
+     for(int j=0;j<v;j++){
+      if(d[j]>f){
+          f=d[j];
       }
     }
-    for(int j=0;j<a;j++){
-            printf("%d\t",c[j]);
-        }
+   
     printf("\n%d",f);
 }
